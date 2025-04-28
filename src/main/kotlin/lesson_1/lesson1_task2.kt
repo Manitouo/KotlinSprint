@@ -7,6 +7,7 @@ fun main() {
     println(orderCount)
     println(thankMessage)
 
+
     var staffCount: Int = 2000
     //println(staffCount)
 
