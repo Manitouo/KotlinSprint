@@ -2,9 +2,11 @@ package org.example.lesson_3
 
 fun main() {
     val userName = "Алиша"
-    val helloDay = "Добрый день"
-    val helloEvening = "Добрый вечер"
+    var helloMessage = "Добрый день"
 
-    println("$helloDay, $userName!")
-    println("$helloEvening, $userName!")
+    println("$helloMessage, $userName!")
+
+    helloMessage = "Добрый вечер"
+
+    println("$helloMessage, $userName!")
 }
