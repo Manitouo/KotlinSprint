@@ -5,7 +5,6 @@ fun main() {
 
     val separatedString = string.split('-', ';')
 
-    //Есть ли способ присвоить значения переменным, не используя массивы?
     val value1 = separatedString[0]
     val value2 = separatedString[1]
     val value3 = separatedString[2]
