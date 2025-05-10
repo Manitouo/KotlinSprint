@@ -10,14 +10,11 @@ fun main() {
     print("Метеоусловия благоприятны (true/false): ")
     val isFavorableWeather = readln().toBoolean()
 
-    val condition1 = (hasDamage == !HAS_DAMAGE) && (crewCount <= CREW_COUNT_MAX) && (crewCount >= CREW_COUNT_MIN) &&
-            (provisionBoxCount > PROVISION_BOX_COUNT_MIN)
-    val condition2 = (crewCount == CREW_COUNT_MAX) && (isFavorableWeather == IS_FAVORABLE_WEATHER) &&
-            (provisionBoxCount >= PROVISION_BOX_COUNT_MIN)
-
     print("Корабль может приступить к долгосрочному плаванию: ")
-    if (condition1 || condition2) print("true")
-    else print("false")
+    print((hasDamage == !HAS_DAMAGE) && (crewCount in CREW_COUNT_MIN..CREW_COUNT_MAX) &&
+            (provisionBoxCount > PROVISION_BOX_COUNT_MIN) || (crewCount == CREW_COUNT_MAX) &&
+            (isFavorableWeather == IS_FAVORABLE_WEATHER) && (provisionBoxCount >= PROVISION_BOX_COUNT_MIN))
+
 }
 
 const val HAS_DAMAGE = true
