@@ -11,9 +11,9 @@ fun main() {
     val isFavorableWeather = readln().toBoolean()
 
     print("Корабль может приступить к долгосрочному плаванию: ")
-    print((hasDamage == !HAS_DAMAGE) && (crewCount in CREW_COUNT_MIN..CREW_COUNT_MAX) &&
-            (provisionBoxCount > PROVISION_BOX_COUNT_MIN) || (crewCount == CREW_COUNT_MAX) &&
-            (isFavorableWeather == IS_FAVORABLE_WEATHER) && (provisionBoxCount >= PROVISION_BOX_COUNT_MIN))
+    print((hasDamage == !HAS_DAMAGE && crewCount in CREW_COUNT_MIN..CREW_COUNT_MAX &&
+            provisionBoxCount > PROVISION_BOX_COUNT_MIN) || (crewCount == CREW_COUNT_MAX &&
+            isFavorableWeather == IS_FAVORABLE_WEATHER && provisionBoxCount >= PROVISION_BOX_COUNT_MIN))
 
 }
 
