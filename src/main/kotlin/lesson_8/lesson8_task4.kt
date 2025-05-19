@@ -10,7 +10,7 @@ fun main() {
     print("\nКакой продукт заменить?: ")
     val ingredientInArray = readln()
 
-    if (ingredients.contains(ingredientInArray)) {
+    if (ingredientInArray in ingredients) {
         print("На какой продукт заменить?: ")
         val index = ingredients.indexOf(ingredientInArray)
         ingredients[index] = readln()
