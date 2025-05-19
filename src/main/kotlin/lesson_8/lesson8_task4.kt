@@ -9,15 +9,15 @@ fun main() {
 
     print("\nКакой продукт заменить?: ")
     val ingredientInArray = readln()
+    val index = ingredients.indexOf(ingredientInArray)
 
-    if (ingredientInArray in ingredients) {
-        print("На какой продукт заменить?: ")
-        val index = ingredients.indexOf(ingredientInArray)
-        ingredients[index] = readln()
-    }
-    else {
+    if (index == -1) {
         println("Такого ингредиента нет")
         return
+    }
+    else {
+        print("На какой продукт заменить?: ")
+        ingredients[index] = readln()
     }
 
     for (i in ingredients) {
