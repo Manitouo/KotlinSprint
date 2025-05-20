@@ -6,10 +6,10 @@ fun main() {
     print("Введите пароль: ")
     val password = readln()
 
-    comparison(login, password)
+    compareCredentials(login, password)
 }
 
-fun comparison(login: String, password: String) {
+fun compareCredentials(login: String, password: String) {
     if (login.length < 4 || password.length < 4) print("Логин или пароль недостаточно длинные")
     else print("Добро пожаловать!")
 }
