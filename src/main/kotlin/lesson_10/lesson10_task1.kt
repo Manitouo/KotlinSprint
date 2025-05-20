@@ -3,16 +3,16 @@ package org.example.lesson_10
 import kotlin.random.Random
 
 fun main() {
-    val computerTurn = dice()
+    val computerTurn = throwDice()
     println("Очередь машины... Результат: $computerTurn")
-    val humanTurn = dice()
+    val humanTurn = throwDice()
     println("Ваша очередь... Результат: $humanTurn")
-    comparison(computerTurn, humanTurn)
+    compareResult(computerTurn, humanTurn)
 }
 
-fun dice() : Int = Random.nextInt(1, 6)
+fun throwDice() : Int = Random.nextInt(1, 6)
 
-fun comparison(computerTurn: Int, humanTurn: Int) {
+fun compareResult(computerTurn: Int, humanTurn: Int) {
     when {
         computerTurn < humanTurn -> print ("Победило человечество")
         computerTurn == humanTurn -> print ("Победила дружба")
