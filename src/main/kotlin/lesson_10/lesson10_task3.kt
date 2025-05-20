@@ -2,10 +2,10 @@ package org.example.lesson_10
 
 fun main() {
     println("Введите длину пароля: ")
-    print(passwordGeneration(readln().toInt()))
+    print(generatePassword(readln().toInt()))
 }
 
-fun passwordGeneration(length: Int) : String {
+fun generatePassword(length: Int) : String {
     var password = ""
     val numbersRange = 0..9
     val symbolsRange = "!\"#$%&'()*+,-./ "
