@@ -17,8 +17,16 @@ class Room(
         listOfMembers += user
     }
 
+    fun getList() {
+        listOfMembers.forEach {
+            println("${it.nickname} - ${it.status}")
+        }
+    }
+
     fun updateStatus(name: String, statusNew: String) {
-        if (name == User3.nickname) User3.status = statusNew
+        listOfMembers.forEach {
+            if (name == it.nickname) it.status = statusNew
+        }
     }
 }
 
@@ -48,5 +56,5 @@ fun main() {
     room.updateStatus("Sophie", "микрофон включен")
 
     println(user2.status)
-    println(room.listOfMembers)
+    println(room.getList())
 }
