@@ -11,13 +11,13 @@ class Room(
     val id: Int,
     var picture: String = "Обложка",
     var name: String,
-    var listOfMembers: List<User3>,
+    var listOfMembers: MutableList<User3>,
 ) {
     fun addUser(user: User3) {
-        listOfMembers += user
+        listOfMembers.add(user)
     }
 
-    fun getList() {
+    fun printList() {
         listOfMembers.forEach {
             println("${it.nickname} - ${it.status}")
         }
@@ -25,7 +25,10 @@ class Room(
 
     fun updateStatus(name: String, statusNew: String) {
         listOfMembers.forEach {
-            if (name == it.nickname) it.status = statusNew
+            if (name == it.nickname) {
+                it.status = statusNew
+                return
+            }
         }
     }
 }
@@ -47,7 +50,7 @@ fun main() {
     val room = Room(
         id = 5,
         name = "Комната 1",
-        listOfMembers = listOf()
+        listOfMembers = mutableListOf()
     )
 
     room.addUser(user1)
@@ -56,5 +59,5 @@ fun main() {
     room.updateStatus("Sophie", "микрофон включен")
 
     println(user2.status)
-    println(room.getList())
+    println(room.printList())
 }
