@@ -14,12 +14,12 @@ fun main() {
     }
 }
 
-fun throwDice(): Int = Random.nextInt(1, 6)
+fun throwDice1(): Int = Random.nextInt(1, 6)
 
 fun conductRound(): Int {
-    val computerTurn = throwDice()
+    val computerTurn = throwDice1()
     println("Очередь машины... Результат: $computerTurn")
-    val humanTurn = throwDice()
+    val humanTurn = throwDice1()
     println("Ваша очередь... Результат: $humanTurn")
     when {
         computerTurn < humanTurn -> {
