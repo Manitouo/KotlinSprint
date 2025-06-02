@@ -1,14 +1,15 @@
 package org.example.lesson_12
 
-
 class Weather() {
     var daytimeTemperature: Int = 0
     var nightTemperature: Int = 0
     var isRainfall: Boolean = false
 
-    fun printInformation(){
-        println("Дневная температура: ${daytimeTemperature}\nНочная температура: ${nightTemperature}" +
-                "\nНаличие осадков: ${isRainfall}")
+    fun printInformation() {
+        println(
+            "Дневная температура: ${daytimeTemperature}\nНочная температура: ${nightTemperature}" +
+                    "\nНаличие осадков: ${isRainfall}"
+        )
     }
 }
 
