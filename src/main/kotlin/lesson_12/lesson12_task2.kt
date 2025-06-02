@@ -27,7 +27,6 @@ fun main() {
         isRainfall = true,
     )
 
-
     day1.printInformation()
     day2.printInformation()
 }
