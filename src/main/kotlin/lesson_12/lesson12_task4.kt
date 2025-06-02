@@ -1,9 +1,11 @@
 package org.example.lesson_12
 
+const val TO_CELSIUS = 273
+
 class WeatherTask3(_daytimeTemperature: Int, _nightTemperature: Int, _isRainfall: Boolean) {
 
-    var daytimeTemperature = _daytimeTemperature - 273.15
-    var nightTemperature = _nightTemperature - 273.15
+    var daytimeTemperature = _daytimeTemperature - TO_CELSIUS
+    var nightTemperature = _nightTemperature - TO_CELSIUS
     var isRainfall = _isRainfall
 
     init {
