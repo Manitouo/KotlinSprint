@@ -4,19 +4,13 @@ const val TO_CELSIUS = 273
 
 class WeatherTask3(_daytimeTemperature: Int, _nightTemperature: Int, _isRainfall: Boolean) {
 
-    var daytimeTemperature = _daytimeTemperature - TO_CELSIUS
-    var nightTemperature = _nightTemperature - TO_CELSIUS
-    var isRainfall = _isRainfall
+    val daytimeTemperature = _daytimeTemperature - TO_CELSIUS
+    val nightTemperature = _nightTemperature - TO_CELSIUS
+    val isRainfall = _isRainfall
 
     init {
-        println(
-            String.format(
-                "Дневная температура: %.1f\nНочная температура: %.1f\nНаличие осадков: %s",
-                daytimeTemperature,
-                nightTemperature,
-                isRainfall
-            )
-        )
+        println("Дневная температура: $daytimeTemperature\nНочная температура: $nightTemperature" +
+                "\nНаличие осадков: $isRainfall")
     }
 }
 
