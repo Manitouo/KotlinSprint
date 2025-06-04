@@ -5,7 +5,7 @@ class PhoneNumberTask3(
     var name: String,
     var number: Long,
     var companyName: String? = null,
-    var list: MutableList<PhoneNumberTask3>,
+    var list: MutableSet<PhoneNumberTask3>,
 ) {
     init {
         list.add(this)
@@ -24,33 +24,33 @@ fun main() {
         "Елена",
         79999999999,
         "null",
-        list = mutableListOf(),
+        list = mutableSetOf(),
     )
     val phoneNumber2 = PhoneNumberTask3(
         2,
         "Дмитрий",
         78888888888,
-        list = mutableListOf(),
+        list = mutableSetOf(),
     )
     val phoneNumber3 = PhoneNumberTask3(
         3,
         "Иван",
         77777777777,
-        list = mutableListOf(),
+        list = mutableSetOf(),
     )
     val phoneNumber4 = PhoneNumberTask3(
         4,
         "Ольга",
         76666666666,
         "Юг-Строй",
-        list = mutableListOf(),
+        list = mutableSetOf(),
     )
     val phoneNumber5 = PhoneNumberTask3(
         5,
         "Сергей",
         75555555555,
         "Весна",
-        list = mutableListOf(),
+        list = mutableSetOf(),
     )
     phoneNumber5.printInformation()
 }
