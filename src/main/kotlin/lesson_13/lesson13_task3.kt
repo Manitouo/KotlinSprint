@@ -5,15 +5,15 @@ class PhoneNumberTask3(
     var name: String,
     var number: Long,
     var companyName: String? = null,
-    var list: MutableSet<PhoneNumberTask3>,
+    var list: MutableSet<String?>,
 ) {
     init {
-        list.add(this)
+        list.add(companyName)
     }
 
     fun printInformation() {
         list.forEach {
-            if (companyName != null) println(companyName)
+            if (companyName != null && companyName != "null") println(companyName)
         }
     }
 }
