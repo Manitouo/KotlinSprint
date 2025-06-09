@@ -5,52 +5,26 @@ class PhoneNumberTask3(
     var name: String,
     var number: Long,
     var companyName: String? = null,
-    var list: MutableSet<String?>,
-) {
-    init {
-        list.add(companyName)
+)
+
+fun editList(list: List<PhoneNumberTask3>) {
+    var listOfCompanies: MutableList<String?> = mutableListOf()
+
+    list.forEach {
+        listOfCompanies.add(it.companyName)
     }
 
-    fun printInformation() {
-        list.forEach {
-            if (companyName != null && companyName != "null") println(companyName)
-        }
-    }
+    val editedListOfCompanies = listOfCompanies.mapNotNull { if (it == "null" || it == null) null else println(it) }
+    //editedListOfCompanies.forEach { println(it) }
 }
 
 fun main() {
-    val phoneNumber1 = PhoneNumberTask3(
-        1,
-        "Елена",
-        79999999999,
-        "null",
-        list = mutableSetOf(),
+    val listOfNumbers = listOf(
+        PhoneNumberTask3(id = 1, name = "Елена", number = 79999999999, companyName = "null"),
+        PhoneNumberTask3(id = 2, name = "Петр", number = 78888888888),
+        PhoneNumberTask3(id = 3, name = "Дмитрий", number = 77777777777, companyName = "Юг-Строй"),
+        PhoneNumberTask3(id = 4, name = "Валерия", number = 76666666666),
+        PhoneNumberTask3(id = 5, name = "Ксения", number = 75555555555, companyName = "Аматория")
     )
-    val phoneNumber2 = PhoneNumberTask3(
-        2,
-        "Дмитрий",
-        78888888888,
-        list = mutableSetOf(),
-    )
-    val phoneNumber3 = PhoneNumberTask3(
-        3,
-        "Иван",
-        77777777777,
-        list = mutableSetOf(),
-    )
-    val phoneNumber4 = PhoneNumberTask3(
-        4,
-        "Ольга",
-        76666666666,
-        "Юг-Строй",
-        list = mutableSetOf(),
-    )
-    val phoneNumber5 = PhoneNumberTask3(
-        5,
-        "Сергей",
-        75555555555,
-        "Весна",
-        list = mutableSetOf(),
-    )
-    phoneNumber5.printInformation()
+    editList(listOfNumbers)
 }
