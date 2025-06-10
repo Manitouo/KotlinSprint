@@ -4,19 +4,7 @@ class PhoneNumberTask4(
     var name: String,
     var number: Long?,
     var companyName: String? = null,
-) {
-
-    fun addNewContact(list: MutableList<PhoneNumberTask4>) {
-        list.add(PhoneNumberTask4(name, number, companyName))
-    }
-
-    fun printInformation(list: MutableList<PhoneNumberTask4>) {
-        list.forEach {
-            println("${it.name}\n$number\n$companyName")
-        }
-    }
-
-}
+)
 
 fun main() {
 
@@ -41,10 +29,9 @@ fun main() {
     else companyName = printedCompanyName
 
     val number1 = PhoneNumberTask4(name, number, companyName)
-
     listOfContacts.add(number1)
 
-    number1.printInformation(listOfContacts)
-
-//    editList(listOfNumbers)
+    listOfContacts.forEach {
+        println("$name\n$number\n$companyName")
+    }
 }
