@@ -15,7 +15,6 @@ fun editList(list: List<PhoneNumberTask3>) {
     }
 
     val editedListOfCompanies = listOfCompanies.mapNotNull { if (it == "null" || it == null) null else println(it) }
-    //editedListOfCompanies.forEach { println(it) }
 }
 
 fun main() {
