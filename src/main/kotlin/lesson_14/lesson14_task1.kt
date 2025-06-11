@@ -2,32 +2,25 @@ package org.example.lesson_14
 
 open class Liner(
     val name: String,
-    val speed: Int,
-    val loadCapacity: Int,
-    var canCrackIce: Boolean = false,
+    val speed: Int = 22,
+    val loadCapacity: Int = 3000,
 )
 
 class Icebreaker(
     name: String,
-    speed: Int,
-    loadCapacity: Int,
-) : Liner(name, speed, loadCapacity, canCrackIce = true)
+    var canCrackIce: Boolean = true,
+) : Liner(name, speed = 20, loadCapacity = 7540)
 
 class CargoShip(
     name: String,
-    speed: Int,
-    loadCapacity: Int,
-) : Liner(name, speed, loadCapacity)
+) : Liner(name, speed = 22, loadCapacity = 83000)
 
 fun main() {
 
-    val ship1 = Liner("Лайнер", 22, 3000)
-    val ship2 = Icebreaker("Ледокол", 20, 7540)
-    val ship3 = CargoShip("Грузовой", 22, 83000)
-
-
-    println("${ship1.name}\n${ship1.speed}\n${ship1.loadCapacity}\n${ship1.canCrackIce}\n")
-    println("${ship2.name}\n${ship2.speed}\n${ship2.loadCapacity}\n${ship2.canCrackIce}\n")
-    println("${ship3.name}\n${ship3.speed}\n${ship3.loadCapacity}\n${ship3.canCrackIce}\n")
-
+    val ship1 = Liner("Лайнер")
+    val ship2 = Icebreaker("Ледокол")
+    val ship3 = CargoShip("Грузовой")
+    println("${ship1.name}\n${ship1.speed}\n${ship1.loadCapacity}\n")
+    println("${ship2.name}\n${ship2.speed}\n${ship2.loadCapacity}\nМожет разбивать лед: ${ship2.canCrackIce}\n")
+    println("${ship3.name}\n${ship3.speed}\n${ship3.loadCapacity}\n")
 }
