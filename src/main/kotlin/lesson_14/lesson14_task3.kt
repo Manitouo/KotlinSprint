@@ -38,8 +38,6 @@ class Rectangle(
 }
 
 fun main() {
-    var sumArea = 0.0
-    var sumPerimeter = 0.0
 
     val circle1 = Circle(color = BLACK_COLOR, radius = 5.0)
     val circle2 = Circle(color = WHITE_COLOR, radius = 7.0)
@@ -52,8 +50,8 @@ fun main() {
     val blackFigures = listOfFigures.filter { it.color == BLACK_COLOR }
     val whiteFigures = listOfFigures.filter { it.color == WHITE_COLOR }
 
-    sumPerimeter = blackFigures.sumOf { it.calculatePerimeter() }
-    sumArea = whiteFigures.sumOf { it.calculateArea() }
+    val sumPerimeter = blackFigures.sumOf { it.calculatePerimeter() }
+    val sumArea = whiteFigures.sumOf { it.calculateArea() }
 
     println("Сумма периметров черных фигур = $sumPerimeter\nСумма площадей белых фигур = $sumArea")
 }
