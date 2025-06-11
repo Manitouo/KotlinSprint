@@ -12,10 +12,10 @@ abstract class Figure(
 
 class Circle(
     color: String,
-    val radius: Int,
+    val radius: Double,
 ) : Figure(color) {
     override fun calculateArea(): Double {
-        return PI * radius.toDouble().pow(2.0)
+        return PI * radius.pow(2.0)
     }
 
     override fun calculatePerimeter(): Double {
@@ -41,18 +41,22 @@ fun main() {
     var sumArea = 0.0
     var sumPerimeter = 0.0
 
-    val circle1 = Circle(color = "черный", radius = 5)
-    val circle2 = Circle(color = "белый", radius = 7)
-    val rectangle1 = Rectangle(color = "черный", width = 5.0, height = 7.0)
-    val rectangle2 = Rectangle(color = "белый", width = 9.0, height = 2.0)
-    val rectangle3 = Rectangle(color = "черный", width = 7.0, height = 4.0)
+    val circle1 = Circle(color = BLACK_COLOR, radius = 5.0)
+    val circle2 = Circle(color = WHITE_COLOR, radius = 7.0)
+    val rectangle1 = Rectangle(color = BLACK_COLOR, width = 5.0, height = 7.0)
+    val rectangle2 = Rectangle(color = WHITE_COLOR, width = 9.0, height = 2.0)
+    val rectangle3 = Rectangle(color = BLACK_COLOR, width = 7.0, height = 4.0)
 
     val listOfFigures: List<Figure> = listOf(circle1, circle2, rectangle1, rectangle2, rectangle3)
 
-    listOfFigures.forEach {
-        if (it.color == "черный") sumPerimeter += it.calculatePerimeter()
-        else sumArea += it.calculateArea()
-    }
+    val blackFigures = listOfFigures.filter { it.color == BLACK_COLOR }
+    val whiteFigures = listOfFigures.filter { it.color == WHITE_COLOR }
+
+    sumPerimeter = blackFigures.sumOf { it.calculatePerimeter() }
+    sumArea = whiteFigures.sumOf { it.calculateArea() }
 
     println("Сумма периметров черных фигур = $sumPerimeter\nСумма площадей белых фигур = $sumArea")
 }
+
+const val BLACK_COLOR = "черный"
+const val WHITE_COLOR = "белый"
