@@ -1,10 +1,4 @@
 package org.example.lesson_15
-
-//interface Deleting {
-//    fun deleteUser()
-//    fun deleteMessage()
-//}
-
 interface Actions {
     fun readForum()
     fun printMessage()
