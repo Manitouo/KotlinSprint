@@ -2,8 +2,8 @@ package org.example.lesson_12
 
 class WeatherTask3(_daytimeTemperature: Int, _nightTemperature: Int, _isRainfall: Boolean) {
 
-    val daytimeTemperature = _daytimeTemperature - TO_CELSIUS
-    val nightTemperature = _nightTemperature - TO_CELSIUS
+    val daytimeTemperature = _daytimeTemperature - TO_CELSIUS1
+    val nightTemperature = _nightTemperature - TO_CELSIUS1
     val isRainfall = _isRainfall
 
     fun printInformation() {
@@ -30,4 +30,4 @@ fun main() {
     day2.printInformation()
 }
 
-const val TO_CELSIUS = 273
+const val TO_CELSIUS1 = 273
