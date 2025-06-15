@@ -19,28 +19,19 @@ class WeatherTask5(_daytimeTemperature: Int, _nightTemperature: Int, _isRainfall
 }
 
 fun main() {
-    var i = 30
-    var weatherMutableList: MutableList<WeatherTask5> = mutableListOf()
-    var nightWeatherList: MutableList<Int> = mutableListOf()
-    var daytimeWeatherList: MutableList<Int> = mutableListOf()
-    var rainfallDayCount = 0
-
-    while (i > 0) {
-        weatherMutableList.add(
-            WeatherTask5(
-                _daytimeTemperature = Random.nextInt(243, 303),
-                _nightTemperature = Random.nextInt(243, 303),
-                _isRainfall = Random.nextBoolean(),
-            )
+    val weatherList = List(30) {
+        WeatherTask5(
+            _daytimeTemperature = Random.nextInt(243, 303),
+            _nightTemperature = Random.nextInt(243, 303),
+            _isRainfall = Random.nextBoolean(),
         )
-        i--
     }
 
-    weatherMutableList.map {
-        if (it.isRainfall) rainfallDayCount++
-        nightWeatherList.add(it.nightTemperature)
-        daytimeWeatherList.add(it.daytimeTemperature)
-    }
+    val rainfallDayCount = weatherList.filter { it.isRainfall }.size
+
+    val nightWeatherList = weatherList.map { it.nightTemperature }
+
+    val daytimeWeatherList = weatherList.map { it.daytimeTemperature }
 
     val stringToPrint = """
     Средняя ночная температура: ${"%.2f".format(nightWeatherList.average())}
