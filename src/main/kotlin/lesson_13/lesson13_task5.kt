@@ -20,6 +20,6 @@ fun main() {
         println("\n${contact1.name}\n${contact1.number}\n${contact1.companyName}")
     }
     catch (e: Exception) {
-        println("Ошибка: неверный формат номера телефона!")
+        println("Ошибка: ${e::class.java.simpleName}")
     }
 }
