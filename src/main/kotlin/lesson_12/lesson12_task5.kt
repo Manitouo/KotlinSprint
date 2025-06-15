@@ -4,7 +4,7 @@ import kotlin.random.Random
 
 const val TO_CELSIUS = 273
 
-class WeatherTask3(_daytimeTemperature: Int, _nightTemperature: Int, _isRainfall: Boolean) {
+class WeatherTask5(_daytimeTemperature: Int, _nightTemperature: Int, _isRainfall: Boolean) {
 
     val daytimeTemperature = _daytimeTemperature - TO_CELSIUS
     val nightTemperature = _nightTemperature - TO_CELSIUS
@@ -20,14 +20,14 @@ class WeatherTask3(_daytimeTemperature: Int, _nightTemperature: Int, _isRainfall
 
 fun main() {
     var i = 30
-    var weatherMutableList: MutableList<WeatherTask3> = mutableListOf()
+    var weatherMutableList: MutableList<WeatherTask5> = mutableListOf()
     var nightWeatherList: MutableList<Int> = mutableListOf()
     var daytimeWeatherList: MutableList<Int> = mutableListOf()
     var rainfallDayCount = 0
 
     while (i > 0) {
         weatherMutableList.add(
-            WeatherTask3(
+            WeatherTask5(
                 _daytimeTemperature = Random.nextInt(243, 303),
                 _nightTemperature = Random.nextInt(243, 303),
                 _isRainfall = Random.nextBoolean(),
