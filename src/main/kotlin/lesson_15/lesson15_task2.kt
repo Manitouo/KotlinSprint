@@ -4,32 +4,22 @@ abstract class WeatherStationStats(
     val date: String,
     val value: Double,
     val name: String,
-) {
-    abstract fun printInformation()
-}
+)
 
 class Temperature(
     date: String,
     value: Double,
-) : WeatherStationStats (date, value, name = "С") {
-    override fun printInformation() {
-        println("Температура $date: $value$name")
-    }
-}
+) : WeatherStationStats (date, value, name = "С")
 
 class PrecipitationAmount(
     date: String,
     value: Double,
-) : WeatherStationStats(date, value, name = "мм") {
-    override fun printInformation() {
-        println("Количество осадков $date: $value$name")
-    }
-}
+) : WeatherStationStats(date, value, name = "мм")
 
 class WeatherServer() {
     fun sendMessage(objects: WeatherStationStats) {
-        if (objects is Temperature) println("Данные о температуре")
-        else if (objects is PrecipitationAmount) println("Данные об осадках")
+        if (objects is Temperature) println("Температура от ${objects.date}: ${objects.value}${objects.name}")
+        else if (objects is PrecipitationAmount) println("Осадки от ${objects.date}: ${objects.value}${objects.name}")
         else println("Некорректные данные")
     }
 }
@@ -45,6 +35,9 @@ fun main() {
         value = 5.0,
     )
 
-    val temperatureToServer = WeatherServer (temperature)
-    val precipitationToServer = WeatherServer (precipitationAmount)
+    val temperatureToServer = WeatherServer()
+    temperatureToServer.sendMessage(temperature)
+
+    val precipitationToServer = WeatherServer ()
+    precipitationToServer.sendMessage(precipitationAmount)
 }
