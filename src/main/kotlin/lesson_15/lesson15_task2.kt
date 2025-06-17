@@ -35,9 +35,7 @@ fun main() {
         value = 5.0,
     )
 
-    val temperatureToServer = WeatherServer()
-    temperatureToServer.sendMessage(temperature)
-
-    val precipitationToServer = WeatherServer ()
-    precipitationToServer.sendMessage(precipitationAmount)
+    val callServer = WeatherServer()
+    callServer.sendMessage(temperature)
+    callServer.sendMessage(precipitationAmount)
 }
