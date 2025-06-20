@@ -1,7 +1,7 @@
 package org.example.lesson_14
 
 class Chat() {
-    var messageId = 1
+    var messageId = 0
     var childMessagesList: MutableList<ChildMessage> = mutableListOf()
     var messagesList: MutableList<Message> = mutableListOf()
 
@@ -25,13 +25,11 @@ class Chat() {
     }
 
     fun printChat() {
-
         val groupedChildMessages = childMessagesList.groupBy { it.parentMessageId }
-
         messagesList.forEach {
             println("${it.author}: ${it.text}")
             groupedChildMessages[it.id]?.forEach {
-                println("   ${it.author}: ${it.text}")
+                println("\t${it.author}: ${it.text}")
             }
         }
     }
