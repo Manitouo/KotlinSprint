@@ -1,71 +1,68 @@
 package org.example.lesson_14
 
 class Chat() {
+    var messageId = 1
+    var childMessagesList: MutableList<ChildMessage> = mutableListOf()
+    var messagesList: MutableList<Message> = mutableListOf()
 
-    var messagesList: MutableList<PatternOfMessage> = mutableListOf()
-
-    fun addMessage(id: Int, author: String, text: String) {
+    fun addMessage(author: String, text: String) {
         val newMessage = Message(
-            id = id,
+            id = messageId++,
             author = author,
             text = text,
         )
         messagesList.add(newMessage)
     }
 
-    fun addThreadMessage(parentMessageId: Int, author: String, text: String) {
+    fun addThreadMessage(author: String, text: String, parentMessageId: Int) {
         val newMessage = ChildMessage(
-            id = parentMessageId,
+            id = messageId++,
             author = author,
             text = text,
+            parentMessageId = parentMessageId,
         )
-        messagesList.add(newMessage)
+        childMessagesList.add(newMessage)
     }
 
     fun printChat() {
+
+        val groupedChildMessages = childMessagesList.groupBy { it.parentMessageId }
+
         messagesList.forEach {
-            if (it is Message) messagesList.groupBy {  }
+            println("${it.author}: ${it.text}")
+            groupedChildMessages[it.id]?.forEach {
+                println("   ${it.author}: ${it.text}")
+            }
         }
     }
+}
 
+open class Message(
+    val id: Int,
+    val author: String,
+    val text: String,
+)
 
-    abstract class PatternOfMessage {
-        abstract val id: Int
-        abstract val author: String
-        abstract val text: String
-        abstract val type: String
+class ChildMessage(
+    id: Int,
+    author: String,
+    text: String,
+    val parentMessageId: Int,
+) : Message(id, author, text)
 
-    }
+fun main() {
+    val chat1 = Chat()
 
-    class Message(
-        override val id: Int,
-        override val author: String,
-        override val text: String,
-        override val type: String = "Message",
-    ) : PatternOfMessage()
+    chat1.addMessage("Николай", "Каждый")
+    chat1.addThreadMessage("Кристина", "Охотник", 1)
+    chat1.addThreadMessage("Григорий", "Желает", 1)
+    chat1.addThreadMessage("Афанасий", "Знать", 1)
+    chat1.addThreadMessage("Анастасия", "Где", 1)
+    chat1.addThreadMessage("Светлана", "Сидит", 1)
+    chat1.addThreadMessage("Александр", "Фазан", 1)
+    chat1.addMessage("Ольга", "Начало обсуждения")
+    chat1.addThreadMessage("Мирон", "Продолжение", 2)
+    chat1.addThreadMessage("Петр", "Конец обсуждения", 2)
 
-    class ChildMessage(
-        override val id: Int,
-        override val author: String,
-        override val text: String,
-        override val type: String = "ChildMessage",
-    ) : PatternOfMessage()
-
-    fun main() {
-
-        val chat1 = Chat()
-
-        chat1.addMessage(1, "Николай", "Каждый")
-        chat1.addThreadMessage(1, "Кристина", "Охотник")
-        chat1.addThreadMessage(1, "Григорий", "Желает")
-        chat1.addThreadMessage(1, "Афанасий", "Знать")
-        chat1.addThreadMessage(1, "Анастасия", "Где")
-        chat1.addThreadMessage(1, "Светлана", "Сидит")
-        chat1.addThreadMessage(1, "Александр", "Фазан")
-        chat1.addMessage(2, "Ольга", "Начало обсуждения")
-        chat1.addThreadMessage(2, "Мирон", "Продолжение")
-        chat1.addThreadMessage(2, "Петр", "Конец обсуждения")
-
-        chat1.printChat()
-    }
+    chat1.printChat()
 }
