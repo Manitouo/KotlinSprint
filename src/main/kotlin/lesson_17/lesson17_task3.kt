@@ -2,12 +2,18 @@ package org.example.lesson_17
 
 class Folder(
     name: String,
-    val filesCount: Int,
+    filesCount: Int,
     var isSecret: Boolean = false,
 ) {
+    val filesCount = filesCount
+        get() {
+            if (isSecret) return 0
+            else return field
+        }
+
     val name = name
         get() {
-            return if (isSecret) "скрытая папка\nкол-во файлов - 0"
+            return if (isSecret) "скрытая папка\nкол-во файлов - $filesCount"
             else "$field\nкол-во файлов - $filesCount"
         }
 }
