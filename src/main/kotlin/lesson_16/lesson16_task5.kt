@@ -10,12 +10,17 @@ class Gamer(
 ) {
     var canHealing = true
 
+    private fun death() {
+        health = 0
+        shotPower = 0
+        canHealing = false
+        println("\nПолучен критический урон" +
+                "\n$name, игра окончена, вы не можете лечиться\nЗдоровье: $health\nСила удара: $shotPower ")
+    }
+
     fun damageHealth(enemy: Gamer) {
         if (enemy.shotPower > health) {
-            health = 0
-            shotPower = 0
-            canHealing = false
-            println("\nПолучен критический урон: ${enemy.shotPower}\n$name, игра окончена, вы не можете лечиться\nЗдоровье: $health\nСила удара: $shotPower ")
+            death()
         } else {
             health -= enemy.shotPower
             println("Получен урон: ${enemy.shotPower}. Текущее здоровье: $health")
