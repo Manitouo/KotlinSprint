@@ -6,24 +6,27 @@ class Order {
     protected val numberOfOrder: Int = index++
     var isReady: Boolean = false
 
-    fun getPermission(): String {
+    fun getPermission() {
         print("Сейчас статус заказа: $isReady\nСменить статус? (да/нет): ")
-        return readln()
+        val answer = readln()
+        changeStatus(answer)
     }
 
-    fun changeStatus() {
-        if (getPermission() == "да") {
-            isReady = !isReady
-            println("Статус изменен")
+    private fun changeStatus(answer: String) {
+        when (answer) {
+            "да" -> {
+                isReady = !isReady
+                println("Статус изменен")
+            }
+            "нет" -> println("Отказано в запросе")
+            else -> println("Повторите запрос")
         }
-        else if (getPermission() == "нет") println("Отказано в запросе")
-        else println("Повторите запрос")
     }
 }
 
 fun main() {
     val order1 = Order()
 
-    order1.changeStatus()
-    order1.changeStatus()
+    order1.getPermission()
+    order1.getPermission()
 }
