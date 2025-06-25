@@ -46,7 +46,6 @@ class Cat(
 
 fun main() {
     val animalList: MutableList<Animal> = mutableListOf()
-
     val fox1: Animal = Fox(
         name = "Алиса"
     )
