@@ -6,6 +6,7 @@ class User(
 ) {
     var login = _login
         set(value) {
+            field = value
             println("Логин успешно изменен на $value")
         }
 
