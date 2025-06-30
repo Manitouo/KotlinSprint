@@ -8,7 +8,7 @@ interface Actions {
     fun bombard() {}
 }
 
-class Spaceship (
+class Spaceship(
     val name: String,
     val category: String,
     id: Int = 0,
@@ -29,7 +29,7 @@ class Spaceship (
 }
 
 fun main() {
-    val spaceship = Spaceship (
+    val spaceship = Spaceship(
         name = "SuperStar",
         category = "Истребитель",
     )
