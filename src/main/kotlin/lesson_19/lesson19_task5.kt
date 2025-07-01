@@ -11,8 +11,8 @@ enum class Gender {
 }
 
 fun defineGender(genderFromString: String): Gender {
-    if (genderFromString == "муж") return MALE
-    else if (genderFromString == "жен") return FEMALE
+    if (genderFromString.trim().lowercase() == "муж") return MALE
+    else if (genderFromString.trim().lowercase() == "жен") return FEMALE
     else return NOT_DEFINED
 }
 
