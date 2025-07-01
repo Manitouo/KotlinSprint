@@ -1,31 +1,19 @@
 package org.example.lesson_19
 
-import kotlin.math.tan
-
-enum class Patron {
-    BLUE,
-    GREEN,
-    RED,
-    EMPTY;
-
-    fun getATK(): Int {
-        when (this) {
-            BLUE -> return 5
-            GREEN -> return 10
-            RED -> return 20
-            EMPTY -> return 0
-        }
-    }
+enum class Patron(val damage: Int) {
+    BLUE(5),
+    GREEN(10),
+    RED(20),
 }
 
 class Tank(
     val name: String,
     val category: String,
 ) {
-    private var atk: Int = 0
+    private var atk: Int? = null
 
     fun arm(patronType: Patron) {
-        atk = patronType.getATK()
+        atk = patronType.damage
         println("Смена вооружения. Текущая АТК: $atk")
     }
 
@@ -46,7 +34,5 @@ fun main() {
     tank.arm(Patron.RED)
     tank.shoot()
     tank.arm(Patron.GREEN)
-    tank.shoot()
-    tank.arm(Patron.EMPTY)
     tank.shoot()
 }
