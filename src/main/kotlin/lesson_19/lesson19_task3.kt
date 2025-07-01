@@ -1,7 +1,5 @@
 package org.example.lesson_19
 
-import kotlin.random.Random
-
 interface Actions {
     fun flyUp() {}
     fun toLand() {}
@@ -13,7 +11,7 @@ class Spaceship(
     val category: String,
     id: Int = 0,
 ) : Actions {
-    val id = Random.nextInt(0, 50)
+    val id = (0..50).random()
 
     override fun flyUp() {
         println("Корабль взлетел")
