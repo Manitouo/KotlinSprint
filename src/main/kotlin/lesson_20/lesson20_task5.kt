@@ -4,8 +4,10 @@ class Robot(
     val id: Int,
     val name: String,
 ) {
-    val phrasesList = listOf("Добрый день", "Заказ выполнен",
-        "Пройдите авторизацию", "Низкий уровень заряда", "До встречи!")
+    val phrasesList = listOf(
+        "Добрый день", "Заказ выполнен",
+        "Пройдите авторизацию", "Низкий уровень заряда", "До встречи!"
+    )
     var randomPhrase = phrasesList.random()
 
     fun say() {
