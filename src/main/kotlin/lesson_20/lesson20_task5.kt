@@ -8,14 +8,16 @@ class Robot(
         "Добрый день", "Заказ выполнен",
         "Пройдите авторизацию", "Низкий уровень заряда", "До встречи!"
     )
-    var randomPhrase = phrasesList.random()
 
-    fun say() {
-        println(randomPhrase)
+    var reversedModifier: ((String) -> String)? = null
+
+    fun setModifier(setModifier: (String) -> String) {
+        reversedModifier = setModifier
     }
 
-    val setModifier: (String) -> Unit = {
-        randomPhrase = it.reversed()
+    fun say() {
+        val randomPhrase = phrasesList.random()
+        println(reversedModifier?.invoke(randomPhrase) ?: randomPhrase)
     }
 }
 
@@ -26,6 +28,6 @@ fun main() {
     )
 
     robot.say()
-    robot.setModifier(robot.randomPhrase)
+    robot.setModifier({ it.reversed() })
     robot.say()
 }
