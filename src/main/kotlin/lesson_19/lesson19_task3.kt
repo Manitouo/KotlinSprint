@@ -22,7 +22,7 @@ class Spaceship(
     }
 
     override fun bombard() {
-        TODO()
+        //TODO Необходима дополнительная логика
     }
 }
 
