@@ -12,5 +12,10 @@ fun main() {
         age = 31,
         phone = 9819990000,
     )
-    println(user1.toString())
+
+    val nameUser1 = user1.component1()
+    val ageUser1 = user1.component2()
+    val phoneUser1 = user1.component3()
+
+    println("Имя: $nameUser1\nВозраст: $ageUser1\nНомер телефона: $phoneUser1")
 }
