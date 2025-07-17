@@ -6,21 +6,20 @@ data class GalacticGuide(
     val date: Int,
     val time: Int?,
     val destination: Double,
-) {
-    override fun toString(): String {
-        return "Имя: $name\nОписание: $description\nДата: $date\nВремя: ${time ?: "---"}" +
-                "\nРасстоняие (св.год): $destination"
-    }
+)
+
+fun toDestruct(info: String): GalacticGuide {
+    val result = info.split(", ")
+    return GalacticGuide(
+        name = result[0], description = result[1], date = result[2].toInt(),
+        time = result[3].toIntOrNull(), destination = result[4].toDouble()
+    )
 }
 
 fun main() {
-    val alphaCentauri = GalacticGuide(
-        name = "Alpha Centauri",
-        description = "",
-        date = 1915,
-        time = null,
-        destination = 4.36,
+    val (name, description, date, time, destination) = toDestruct(
+        "Alpha Centauri, Тройная звёздная система в южном созвездии Центавра, 1915, , 4.36"
     )
 
-    println(alphaCentauri)
+    println("$name\n$description\n$date\n$time\n$destination")
 }
